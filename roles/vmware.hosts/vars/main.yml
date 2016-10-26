@@ -1,0 +1,66 @@
+# file: roles/vmware.hosts/vars/main.yml
+---
+##########################################
+# RHEL VM: Vars
+##########################################
+vSphere_hostname: "192.0.2.44"
+vSphere_username: "administrator@vsphere.local"
+vSphere_password: "changeme"
+esxi_host: "192.168.1.1"
+
+##########################################
+# RHEL VARS
+##########################################
+rhel_vms:
+  - vmname: rhel-1
+    disk_size: 20
+    datastore: somewhere
+    memory: 4
+    cpu: 2
+    osid: ""
+    scsi: paravirtual
+    template: ""
+  - vmname: rhel-2
+    disk_size: 20
+    datastore: somewhere
+    memory: 6
+    cpu: 4
+    osid: ""
+    scsi: paravirtual
+    template: ""
+  - vmname: rhel-3
+    disk_size: 20
+    datastore: somewhere
+    memory: 8
+    cpu: 6
+    osid: ""
+    scsi: paravirtual
+    template: "" 
+##########################################
+# Windows VARS
+##########################################
+windows_vms:
+  - vmname: windows-1
+    disk_size: 20
+    datastore: somewhere
+    memory: 4
+    cpu: 2
+    osid: ""
+    scsi: paravirtual
+    template: ""
+  - vmname: windows-2
+    disk_size: 20
+    datastore: somewhere
+    memory: 6
+    cpu: 4
+    osid: ""
+    scsi: paravirtual
+    template: ""
+  - vmname: windows-3
+    disk_size: 20
+    datastore: somewhere
+    memory: 8
+    cpu: 6
+    osid: ""
+    scsi: paravirtual
+    template: "" 

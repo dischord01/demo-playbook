@@ -1,0 +1,12 @@
+# file: site.yml
+---
+- name: Launch and configure RHEL & Windows VMs
+  hosts: all
+  become: yes
+  roles:
+    - {role: vmware.hosts}
+    - {role: ngc.ntp}
+    - {role: ngc.firewall}
+    - {role: ngc.sshd}
+
+

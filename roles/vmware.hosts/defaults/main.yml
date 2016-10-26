@@ -1,0 +1,4 @@
+# file: roles/vmware.hosts/defaults/main.yml
+---
+#
+# foo: default

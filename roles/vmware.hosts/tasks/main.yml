@@ -1,0 +1,65 @@
+# file: roles/vmware.hosts/tasks/main.yml
+# http://docs.ansible.com/ansible/vmware_guest_module.html
+---
+#----------------------------------------------
+# RHEL VM:
+#----------------------------------------------
+- name: Create RHEL VMs
+  vmware_guest:
+    validate_certs: False
+    hostname: "{{vSphere_hostname}}"
+    username: "{{vSphere_username}}"
+    password: "{{vSphere_password}}"
+    name: "{{item.vmname}}"
+    state: poweredon
+    folder: testvms
+    disk:
+        - size_gb: "{{item.disk_size}}"
+          type: thin
+          datastore: "{{item.datastore}}"
+    nic:
+        - type: vmxnet3
+          network: VM Network
+          network_type: standard
+    hardware:
+        memory_mb: "{{item.memory}}"
+        num_cpus: "{{item.cpu}}"
+        osid: "{{item.osid}}"
+        scsi: "{{item.scsi}}"
+    datacenter: datacenter1
+    esxi_hostname: "{{esxi_host}}"
+    template: "{{item.template}}"
+    wait_for_ip_address: yes
+  register: deploy-vm-1
+  with_items: "{{rhel_vms}}"
+#----------------------------------------------
+# Windows VM: 
+#----------------------------------------------
+- name: Create Windows VMs
+  vmware_guest:
+    validate_certs: False
+    hostname: "{{vSphere_hostname}}"
+    username: "{{vSphere_username}}"
+    password: "{{vSphere_password}}"
+    name: "{{item.vmname}}"
+    state: poweredon
+    folder: testvms
+    disk:
+        - size_gb: "{{item.disk_size}}"
+          type: thin
+          datastore: "{{item.datastore}}"
+    nic:
+        - type: vmxnet3
+          network: VM Network
+          network_type: standard
+    hardware:
+        memory_mb: "{{item.memory}}"
+        num_cpus: "{{item.cpu}}"
+        osid: "{{item.osid}}"
+        scsi: "{{item.scsi}}"
+    datacenter: datacenter1
+    esxi_hostname: "{{esxi_host}}"
+    template: "{{item.template}}"
+    wait_for_ip_address: yes
+  register: deploy-vm-1
+  with_items: "{{windows_vms}}"

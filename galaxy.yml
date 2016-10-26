@@ -1,0 +1,17 @@
+# # install_roles.yml
+
+
+# from github, overriding the name and specifying a specific tag
+- src: https://github.com/bennojoy/ntp.git
+  version: master
+  name: ngc.ntp
+
+# from github, overriding the name and specifying a specific tag
+- src: https://github.com/willshersystems/ansible-sshd.git
+  version: master
+  name: ngc.sshd
+
+# from github, overriding the name and specifying a specific tag
+- src: https://github.com/geerlingguy/ansible-role-firewall.git
+  version: master
+  name: ngc.firewall
